@@ -223,7 +223,7 @@ int main(int argc, char* argv[]) {
 		XR_CHECK(xrEnumerateInstanceExtensionProperties(nullptr, property_count, &property_count, properties.data()));
 
 		if (!std::ranges::all_of(required_extensions, [&properties](auto ext_name) {
-			return std::find_if(properties.cbegin(), properties.cend(), [ext_name](const auto & ext) {
+			return std::ranges::find_if(properties, [ext_name](const auto & ext) {
 				return strcmp(ext.extensionName, ext_name) == 0;
 			}) != properties.cend();
 		})) {
