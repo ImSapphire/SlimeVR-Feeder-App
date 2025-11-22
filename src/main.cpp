@@ -467,6 +467,8 @@ int main(int argc, char* argv[]) {
 	}
 
 exit:
+	XR_PRINT(xrDestroySpace(left_grip));
+	XR_PRINT(xrDestroySpace(right_grip));
 	XR_PRINT(xrDestroySession(session));
 	XR_PRINT(xrDestroyInstance(instance));
 	fmt::print("Exiting cleanly!\n");
